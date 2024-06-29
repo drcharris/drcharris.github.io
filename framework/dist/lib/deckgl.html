@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>deck.gl | Observable Framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="../_import/style.94d47c6c.css">
+<link rel="preload" as="style" href="../_observablehq/stdlib/inputs.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="../_import/style.94d47c6c.css">
+<link rel="stylesheet" type="text/css" href="../_observablehq/stdlib/inputs.css">
+<link rel="modulepreload" href="../_observablehq/client.js">
+<link rel="modulepreload" href="../_observablehq/runtime.js">
+<link rel="modulepreload" href="../_observablehq/stdlib.js">
+<link rel="modulepreload" href="../_npm/deck.gl@9.0.20/dist.min.js._esm.js">
+<link rel="modulepreload" href="../_npm/d3-dsv@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3@7.9.0/_esm.js">
+<link rel="modulepreload" href="../_observablehq/stdlib/inputs.js">
+<link rel="modulepreload" href="../_npm/@observablehq/plot@0.6.15/_esm.js">
+<link rel="modulepreload" href="../_npm/topojson-client@3.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/htl@0.3.1/_esm.js">
+<link rel="modulepreload" href="../_npm/isoformat@0.2.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-array@3.2.4/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-axis@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-brush@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-chord@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-color@3.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-contour@4.0.2/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-delaunay@6.0.4/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-dispatch@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-drag@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-ease@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-fetch@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-force@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-format@3.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-geo@3.1.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-hierarchy@3.1.2/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-interpolate@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-path@3.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-polygon@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-quadtree@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-random@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-scale@4.0.2/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-scale-chromatic@3.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-selection@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-shape@3.2.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-time@3.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-time-format@4.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-timer@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-transition@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-zoom@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/interval-tree-1d@1.0.4/_esm.js">
+<link rel="modulepreload" href="../_npm/internmap@2.0.3/_esm.js">
+<link rel="modulepreload" href="../_npm/delaunator@5.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/binary-search-bounds@2.0.5/_esm.js">
+<link rel="modulepreload" href="../_npm/robust-predicates@3.0.2/_esm.js">
+<link rel="apple-touch-icon" href="../_file/observable.1af93621.png">
+<link rel="icon" type="image/png" href="../_file/observable.1af93621.png" sizes="32x32">
+<script type="module">/Win/.test(navigator.platform) || Array.from(document.querySelectorAll(".win"), (e) => e.remove())</script>
+<script type="module">
+
+import {define} from "../_observablehq/client.js";
+import {registerFile} from "../_observablehq/stdlib.js";
+
+registerFile("../data/dft-road-collisions.csv", {"name":"../data/dft-road-collisions.csv","mimeType":"text/csv","path":"../_file/data/dft-road-collisions.e0c866b8.csv","lastModified":1719665283991});
+
+define({id: "20798e2f", outputs: ["deck"], body: async () => {
+const {default: deck} = await import("../_npm/deck.gl@9.0.20/dist.min.js._esm.js");
+
+return {deck};
+}});
+
+define({id: "4778ed54", inputs: ["deck"], outputs: ["DeckGL","AmbientLight","GeoJsonLayer","HexagonLayer","LightingEffect","PointLight"], body: (deck) => {
+const {DeckGL, AmbientLight, GeoJsonLayer, HexagonLayer, LightingEffect, PointLight} = deck;
+return {DeckGL,AmbientLight,GeoJsonLayer,HexagonLayer,LightingEffect,PointLight};
+}});
+
+define({id: "098cb53f", mode: "inline", inputs: ["data","display"], body: async (data,display) => {
+display(await(
+data.length.toLocaleString("en-US")
+))
+}});
+
+define({id: "ab721527", mode: "inline", inputs: ["colorLegend","display"], body: async (colorLegend,display) => {
+display(await(
+colorLegend
+))
+}});
+
+define({id: "e178a37b", inputs: ["view","Inputs"], outputs: ["coverage","radius","upperPercentile"], body: (view,Inputs) => {
+const coverage = view(Inputs.range([0, 1], {value: 0.5, label: "Coverage", step: 0.01}));
+const radius = view(Inputs.range([500, 20000], {value: 1000, label: "Radius", step: 100}));
+const upperPercentile = view(Inputs.range([0, 100], {value: 100, label: "Upper percentile", step: 1}));
+return {coverage,radius,upperPercentile};
+}});
+
+define({id: "5f325682", inputs: ["FileAttachment","topojson"], outputs: ["data","topo","world","countries"], body: (FileAttachment,topojson) => {
+const data = FileAttachment("../data/dft-road-collisions.csv").csv({array: true, typed: true}).then((data) => data.slice(1));
+const topo = new URL("../_npm/visionscarto-world-atlas@1.0.0/world/50m.json", location).href;
+const world = fetch(topo).then((response) => response.json());
+const countries = world.then((world) => topojson.feature(world, world.objects.countries));
+return {data,topo,world,countries};
+}});
+
+define({id: "0f227130", inputs: ["Plot"], outputs: ["colorRange","colorLegend"], body: (Plot) => {
+const colorRange = [
+  [1, 152, 189],
+  [73, 227, 206],
+  [216, 254, 181],
+  [254, 237, 177],
+  [254, 173, 84],
+  [209, 55, 78]
+];
+
+const colorLegend = Plot.plot({
+  margin: 0,
+  marginTop: 20,
+  width: 180,
+  height: 35,
+  style: "color: white;",
+  x: {padding: 0, axis: null},
+  marks: [
+    Plot.cellX(colorRange, {fill: ([r, g, b]) => `rgb(${r},${g},${b})`, inset: 0.5}),
+    Plot.text(["Fewer"], {frameAnchor: "top-left", dy: -12}),
+    Plot.text(["More"], {frameAnchor: "top-right", dy: -12})
+  ]
+});
+return {colorRange,colorLegend};
+}});
+
+define({id: "66b1d8c3", inputs: ["DeckGL","container","initialViewState","getTooltip","effects","invalidation"], outputs: ["deckInstance"], body: (DeckGL,container,initialViewState,getTooltip,effects,invalidation) => {
+const deckInstance = new DeckGL({
+  container,
+  initialViewState,
+  getTooltip,
+  effects,
+  controller: true
+});
+
+// clean up if this code re-runs
+invalidation.then(() => {
+  deckInstance.finalize();
+  container.innerHTML = "";
+});
+return {deckInstance};
+}});
+
+define({id: "be874bfd", outputs: ["initialViewState"], body: () => {
+const initialViewState = {
+  longitude: -2,
+  latitude: 53.5,
+  zoom: 5.7,
+  minZoom: 5,
+  maxZoom: 15,
+  pitch: 40.5,
+  bearing: -5
+};
+return {initialViewState};
+}});
+
+define({id: "30c81b4b", outputs: ["getTooltip"], body: () => {
+function getTooltip({object}) {
+  if (!object) return null;
+  const [lng, lat] = object.position;
+  const count = object.points.length;
+  return `latitude: ${lat.toFixed(2)}
+    longitude: ${lng.toFixed(2)}
+    ${count} collisions`;
+}
+return {getTooltip};
+}});
+
+define({id: "397ecdfa", inputs: ["LightingEffect","AmbientLight","PointLight"], outputs: ["effects"], body: (LightingEffect,AmbientLight,PointLight) => {
+const effects = [
+  new LightingEffect({
+    ambientLight: new AmbientLight({color: [255, 255, 255], intensity: 1.0}),
+    pointLight: new PointLight({color: [255, 255, 255], intensity: 0.8, position: [-0.144528, 49.739968, 80000]}),
+    pointLight2: new PointLight({color: [255, 255, 255], intensity: 0.8, position: [-3.807751, 54.104682, 8000]})
+  })
+];
+return {effects};
+}});
+
+define({id: "b1187fba", inputs: ["deckInstance","GeoJsonLayer","countries","HexagonLayer","data","coverage","radius","upperPercentile","colorRange","t"], body: (deckInstance,GeoJsonLayer,countries,HexagonLayer,data,coverage,radius,upperPercentile,colorRange,t) => {
+deckInstance.setProps({
+  layers: [
+    new GeoJsonLayer({
+      id: "base-map",
+      data: countries,
+      lineWidthMinPixels: 1,
+      getLineColor: [60, 60, 60],
+      getFillColor: [9, 16, 29]
+    }),
+    new HexagonLayer({
+      id: "heatmap",
+      data,
+      coverage,
+      radius,
+      upperPercentile,
+      colorRange,
+      elevationScale: 50,
+      elevationRange: [0, 5000 * t],
+      extruded: true,
+      getPosition: (d) => d,
+      pickable: true,
+      material: {
+        ambient: 0.64,
+        diffuse: 0.6,
+        shininess: 32,
+        specularColor: [51, 51, 51]
+      }
+    })
+  ]
+});
+}});
+
+define({id: "48a1c3df", inputs: ["d3"], outputs: ["t"], body: (d3) => {
+const t = (function* () {
+  const duration = 1000;
+  const start = performance.now();
+  const end = start + duration;
+  let now;
+  while ((now = performance.now()) < end) yield d3.easeCubicInOut(Math.max(0, (now - start) / duration));
+  yield 1;
+})();
+return {t};
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="../">Observable Framework</a></li>
+  </ol>
+  <div id="observablehq-search"><input type="search" placeholder="Search"></div>
+  <div id="observablehq-search-results"></div>
+  <script>{const o=document.querySelector("#observablehq-search");o.setAttribute("data-shortcut",`${/Mac|iPhone/.test(navigator.platform)?"\u2318":"Alt-"}K`);const t=o.querySelector("input"),r=()=>import("../_observablehq/search.js");t.addEventListener("focus",r,{once:!0}),t.addEventListener("keydown",r,{once:!0});const c=document.querySelector("#observablehq-sidebar-toggle");addEventListener("keydown",e=>{(e.code==="KeyK"&&e.metaKey&&!e.altKey&&!e.ctrlKey||e.key==="/"&&!e.metaKey&&!e.altKey&&!e.ctrlKey&&e.target===document.body)&&(c.checked?t.focus():(c.click(),t.focus(),c.click()),t.select(),e.preventDefault())});}</script>
+  <ol>
+    <li class="observablehq-link"><a href="../what-is-framework">What is Framework?</a></li>
+    <li class="observablehq-link"><a href="../getting-started">Getting started</a></li>
+    <li class="observablehq-link"><a href="../project-structure">Project structure</a></li>
+    <li class="observablehq-link"><a href="../markdown">Markdown</a></li>
+    <li class="observablehq-link"><a href="../javascript">JavaScript</a></li>
+    <li class="observablehq-link"><a href="../reactivity">Reactivity</a></li>
+    <li class="observablehq-link"><a href="../jsx">JSX</a></li>
+    <li class="observablehq-link"><a href="../imports">Imports</a></li>
+    <li class="observablehq-link"><a href="../loaders">Data loaders</a></li>
+    <li class="observablehq-link"><a href="../files">Files</a></li>
+    <li class="observablehq-link"><a href="../sql">SQL</a></li>
+    <li class="observablehq-link"><a href="../themes">Themes</a></li>
+    <li class="observablehq-link"><a href="../config">Configuration</a></li>
+    <li class="observablehq-link"><a href="../deploying">Deploying</a></li>
+    <li class="observablehq-link"><a href="https://github.com/observablehq/framework/tree/main/examples" target="_blank"><span>Examples</span></a></li>
+  </ol>
+  <details>
+    <summary>Inputs</summary>
+    <ol>
+    <li class="observablehq-link"><a href="../inputs/button">Button</a></li>
+    <li class="observablehq-link"><a href="../inputs/checkbox">Checkbox</a></li>
+    <li class="observablehq-link"><a href="../inputs/color">Color</a></li>
+    <li class="observablehq-link"><a href="../inputs/date">Date</a></li>
+    <li class="observablehq-link"><a href="../inputs/file">File</a></li>
+    <li class="observablehq-link"><a href="../inputs/form">Form</a></li>
+    <li class="observablehq-link"><a href="../inputs/radio">Radio</a></li>
+    <li class="observablehq-link"><a href="../inputs/range">Range</a></li>
+    <li class="observablehq-link"><a href="../inputs/search">Search</a></li>
+    <li class="observablehq-link"><a href="../inputs/select">Select</a></li>
+    <li class="observablehq-link"><a href="../inputs/table">Table</a></li>
+    <li class="observablehq-link"><a href="../inputs/text">Text</a></li>
+    <li class="observablehq-link"><a href="../inputs/textarea">Textarea</a></li>
+    <li class="observablehq-link"><a href="../inputs/toggle">Toggle</a></li>
+    </ol>
+  </details>
+  <details open class="observablehq-section-active">
+    <summary>Libraries</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./arrow">Apache Arrow</a></li>
+    <li class="observablehq-link"><a href="./arquero">Arquero</a></li>
+    <li class="observablehq-link"><a href="./csv">CSV</a></li>
+    <li class="observablehq-link"><a href="./d3">D3</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./deckgl">Deck.gl</a></li>
+    <li class="observablehq-link"><a href="./dot">DOT (Graphviz)</a></li>
+    <li class="observablehq-link"><a href="./duckdb">DuckDB</a></li>
+    <li class="observablehq-link"><a href="./htl">Hypertext Literal</a></li>
+    <li class="observablehq-link"><a href="./leaflet">Leaflet</a></li>
+    <li class="observablehq-link"><a href="./lodash">Lodash</a></li>
+    <li class="observablehq-link"><a href="./mapbox-gl">Mapbox GL JS</a></li>
+    <li class="observablehq-link"><a href="./mermaid">Mermaid</a></li>
+    <li class="observablehq-link"><a href="./xlsx">Microsoft Excel (XLSX)</a></li>
+    <li class="observablehq-link"><a href="./mosaic">Mosaic vgplot</a></li>
+    <li class="observablehq-link"><a href="./generators">Observable Generators</a></li>
+    <li class="observablehq-link"><a href="./inputs">Observable Inputs</a></li>
+    <li class="observablehq-link"><a href="./plot">Observable Plot</a></li>
+    <li class="observablehq-link"><a href="./shapefile">Shapefile</a></li>
+    <li class="observablehq-link"><a href="./sqlite">SQLite</a></li>
+    <li class="observablehq-link"><a href="./tex">TeX</a></li>
+    <li class="observablehq-link"><a href="./topojson">TopoJSON</a></li>
+    <li class="observablehq-link"><a href="./vega-lite">Vega-Lite</a></li>
+    <li class="observablehq-link"><a href="./zip">ZIP</a></li>
+    </ol>
+  </details>
+  <ol>
+    <li class="observablehq-link"><a href="../contributing">Contributing</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<div id="observablehq-center">
+<header id="observablehq-header">
+<div style="display: flex; align-items: center; gap: 0.5rem; height: 2.2rem; margin: -1.5rem -2rem 2rem -2rem; padding: 0.5rem 2rem; border-bottom: solid 1px var(--theme-foreground-faintest); font: 500 16px var(--sans-serif);">
+  <a href="https://observablehq.com/" target="_self" rel="" style="display: flex; align-items: center;">
+    <svg width="22" height="22" viewBox="0 0 21.92930030822754 22.68549919128418" fill="currentColor">
+      <path d="M10.9646 18.9046C9.95224 18.9046 9.07507 18.6853 8.33313 18.2467C7.59386 17.8098 7.0028 17.1909 6.62722 16.4604C6.22789 15.7003 5.93558 14.8965 5.75735 14.0684C5.56825 13.1704 5.47613 12.2574 5.48232 11.3427C5.48232 10.6185 5.52984 9.92616 5.62578 9.26408C5.7208 8.60284 5.89715 7.93067 6.15391 7.24843C6.41066 6.56618 6.74143 5.97468 7.14438 5.47308C7.56389 4.9592 8.1063 4.54092 8.72969 4.25059C9.38391 3.93719 10.1277 3.78091 10.9646 3.78091C11.977 3.78091 12.8542 4.00021 13.5962 4.43879C14.3354 4.87564 14.9265 5.49454 15.3021 6.22506C15.6986 6.97704 15.9883 7.7744 16.1719 8.61712C16.3547 9.459 16.447 10.3681 16.447 11.3427C16.447 12.067 16.3995 12.7593 16.3035 13.4214C16.2013 14.1088 16.0206 14.7844 15.7644 15.437C15.4994 16.1193 15.1705 16.7108 14.7739 17.2124C14.3774 17.714 13.8529 18.1215 13.1996 18.4349C12.5463 18.7483 11.8016 18.9046 10.9646 18.9046ZM12.8999 13.3447C13.4242 12.8211 13.7159 12.0966 13.7058 11.3427C13.7058 10.5639 13.4436 9.89654 12.92 9.34074C12.3955 8.78495 11.7441 8.50705 10.9646 8.50705C10.1852 8.50705 9.53376 8.78495 9.00928 9.34074C8.49569 9.87018 8.21207 10.5928 8.22348 11.3427C8.22348 12.1216 8.48572 12.7889 9.00928 13.3447C9.53376 13.9005 10.1852 14.1784 10.9646 14.1784C11.7441 14.1784 12.3891 13.9005 12.8999 13.3447ZM10.9646 22.6855C17.0199 22.6855 21.9293 17.6068 21.9293 11.3427C21.9293 5.07871 17.0199 0 10.9646 0C4.90942 0 0 5.07871 0 11.3427C0 17.6068 4.90942 22.6855 10.9646 22.6855Z"></path>
+    </svg>
+  </a>
+  <div style="display: flex; flex-grow: 1; justify-content: space-between; align-items: baseline;">
+    <a href="../">
+      <span class="hide-if-small">Observable</span> Framework
+    </a>
+    <span style="display: flex; align-items: baseline; gap: 1rem; font-size: 14px;">
+      <a target="_blank" title="1.9.0 release notes" href="https://github.com/observablehq/framework/releases" rel="noopener noreferrer"><span>1.9.0</span></a>
+      <a target="_blank" data-decoration="★" title="2,121 GitHub stars" href="https://github.com/observablehq/framework" rel="noopener noreferrer"><span>GitHub️ 2.1k</span></a>
+    </span>
+  </div>
+</div>
+</header>
+<main id="observablehq-main" class="observablehq">
+<h1 id="deck.gl" tabindex="-1"><a class="observablehq-header-anchor" href="#deck.gl">deck.gl</a></h1>
+<p><a href="https://deck.gl/" target="_blank" rel="noopener noreferrer">deck.gl</a> is a “GPU-powered framework for visual exploratory data analysis of large datasets.” You can import deck.gl’s <a href="https://deck.gl/docs/get-started/using-standalone#using-the-scripting-api" target="_blank" rel="noopener noreferrer">standalone bundle</a> like so:</p>
+<div class="observablehq observablehq--block"><!--:20798e2f:--></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> deck <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:deck.gl"</span>;
+</code></pre>
+<p>You can then refer to deck.gl’s various components such as <code>deck.DeckGL</code> or <code>deck.HexagonLayer</code>. Or for more concise references, you can destructure these symbols into top-level variables:</p>
+<div class="observablehq observablehq--block"><!--:4778ed54:--></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> {<span class="hljs-title class_">DeckGL</span>, <span class="hljs-title class_">AmbientLight</span>, <span class="hljs-title class_">GeoJsonLayer</span>, <span class="hljs-title class_">HexagonLayer</span>, <span class="hljs-title class_">LightingEffect</span>, <span class="hljs-title class_">PointLight</span>} = deck;
+</code></pre>
+<p>The example below is adapted <a href="https://deck.gl/examples/hexagon-layer" target="_blank" rel="noopener noreferrer">from the documentation</a>.</p>
+<div class="card" style="margin: 0 -1rem;">
+<h2 id="personal-injury-road-collisions%2C-2022" tabindex="-1"><a class="observablehq-header-anchor" href="#personal-injury-road-collisions%2C-2022">Personal injury road collisions, 2022</a></h2>
+<h3 id="reported-collisions-on-public-roads" tabindex="-1"><a class="observablehq-header-anchor" href="#reported-collisions-on-public-roads"><observablehq-loading></observablehq-loading><!--:098cb53f:--> reported collisions on public roads</a></h3>
+<figure style="max-width: none; position: relative;">
+  <div id="container" style="border-radius: 8px; overflow: hidden; background: rgb(18, 35, 48); height: 800px; margin: 1rem 0; "></div>
+  <div style="position: absolute; top: 1rem; right: 1rem; filter: drop-shadow(0 0 4px rgba(0,0,0,.5));"><observablehq-loading></observablehq-loading><!--:ab721527:--></div>
+  <figcaption>Data: <a href="https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-safety-data" target="_blank" rel="noopener noreferrer">Department for Transport</a></figcaption>
+</figure>
+</div>
+<div class="observablehq observablehq--block"><!--:e178a37b:--></div>
+<p>The code powering this example is a bit elaborate. Let’s break it down.</p>
+<h3 id="1.-the-data" tabindex="-1"><a class="observablehq-header-anchor" href="#1.-the-data">1. The data</a></h3>
+<p>The accidentology data is loaded as a CSV file, generated by a data loader (<a href="https://github.com/observablehq/framework/blob/main/docs/data/dft-road-collisions.csv.sh" target="_blank" rel="noopener noreferrer"><code>dft-road-collisions.csv.sh</code></a>) using DuckDB to produce an extract from the Department for Transport dataset. The country shapes come from a <a href="./topojson">TopoJSON</a> file, which we convert to GeoJSON.</p>
+<div class="observablehq observablehq--block"><!--:5f325682:--></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> data = <span class="hljs-title class_">FileAttachment</span>(<span class="hljs-string">"../data/dft-road-collisions.csv"</span>).<span class="hljs-title function_">csv</span>({<span class="hljs-attr">array</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">typed</span>: <span class="hljs-literal">true</span>}).<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> data.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>));
+<span class="hljs-keyword">const</span> topo = <span class="hljs-keyword">import</span>.<span class="hljs-property">meta</span>.<span class="hljs-title function_">resolve</span>(<span class="hljs-string">"npm:visionscarto-world-atlas/world/50m.json"</span>);
+<span class="hljs-keyword">const</span> world = <span class="hljs-title function_">fetch</span>(topo).<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> response.<span class="hljs-title function_">json</span>());
+<span class="hljs-keyword">const</span> countries = world.<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">world</span>) =&gt;</span> topojson.<span class="hljs-title function_">feature</span>(world, world.<span class="hljs-property">objects</span>.<span class="hljs-property">countries</span>));
+</code></pre>
+<h3 id="2.-the-layout" tabindex="-1"><a class="observablehq-header-anchor" href="#2.-the-layout">2. The layout</a></h3>
+<p>Using nested divs, we position a large area for the chart, and a card floating on top that will receive the title, the color legend, and interactive controls:</p>
+<pre data-language="html"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"margin: 0 -1rem;"</span>&gt;</span>
+
+## Personal injury road collisions, 2022
+### ${data.length.toLocaleString("en-US")} reported collisions on public roads
+
+<span class="hljs-tag">&lt;<span class="hljs-name">figure</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"max-width: none; position: relative;"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"container"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"border-radius: 8px; overflow: hidden; background: rgb(18, 35, 48); height: 800px; margin: 1rem 0; "</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"position: absolute; top: 1rem; right: 1rem; filter: drop-shadow(0 0 4px rgba(0,0,0,.5));"</span>&gt;</span>${colorLegend}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">figcaption</span>&gt;</span>Data: <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-safety-data"</span>&gt;</span>Department for Transport<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">figcaption</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">figure</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>The colors are represented as (red, green, blue) triplets, as expected by deck.gl. The legend is made using <a href="./plot">Observable Plot</a>:</p>
+<div class="observablehq observablehq--block"><!--:0f227130:--></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> colorRange = [
+  [<span class="hljs-number">1</span>, <span class="hljs-number">152</span>, <span class="hljs-number">189</span>],
+  [<span class="hljs-number">73</span>, <span class="hljs-number">227</span>, <span class="hljs-number">206</span>],
+  [<span class="hljs-number">216</span>, <span class="hljs-number">254</span>, <span class="hljs-number">181</span>],
+  [<span class="hljs-number">254</span>, <span class="hljs-number">237</span>, <span class="hljs-number">177</span>],
+  [<span class="hljs-number">254</span>, <span class="hljs-number">173</span>, <span class="hljs-number">84</span>],
+  [<span class="hljs-number">209</span>, <span class="hljs-number">55</span>, <span class="hljs-number">78</span>]
+];
+
+<span class="hljs-keyword">const</span> colorLegend = <span class="hljs-title class_">Plot</span>.<span class="hljs-title function_">plot</span>({
+  <span class="hljs-attr">margin</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">marginTop</span>: <span class="hljs-number">20</span>,
+  <span class="hljs-attr">width</span>: <span class="hljs-number">180</span>,
+  <span class="hljs-attr">height</span>: <span class="hljs-number">35</span>,
+  <span class="hljs-attr">style</span>: <span class="hljs-string">"color: white;"</span>,
+  <span class="hljs-attr">x</span>: {<span class="hljs-attr">padding</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">axis</span>: <span class="hljs-literal">null</span>},
+  <span class="hljs-attr">marks</span>: [
+    <span class="hljs-title class_">Plot</span>.<span class="hljs-title function_">cellX</span>(colorRange, {<span class="hljs-attr">fill</span>: <span class="hljs-function">(<span class="hljs-params">[r, g, b]</span>) =&gt;</span> <span class="hljs-string">`rgb(<span class="hljs-subst">${r}</span>,<span class="hljs-subst">${g}</span>,<span class="hljs-subst">${b}</span>)`</span>, <span class="hljs-attr">inset</span>: <span class="hljs-number">0.5</span>}),
+    <span class="hljs-title class_">Plot</span>.<span class="hljs-title function_">text</span>([<span class="hljs-string">"Fewer"</span>], {<span class="hljs-attr">frameAnchor</span>: <span class="hljs-string">"top-left"</span>, <span class="hljs-attr">dy</span>: -<span class="hljs-number">12</span>}),
+    <span class="hljs-title class_">Plot</span>.<span class="hljs-title function_">text</span>([<span class="hljs-string">"More"</span>], {<span class="hljs-attr">frameAnchor</span>: <span class="hljs-string">"top-right"</span>, <span class="hljs-attr">dy</span>: -<span class="hljs-number">12</span>})
+  ]
+});
+</code></pre>
+<h3 id="3.-the-deckgl-instance" tabindex="-1"><a class="observablehq-header-anchor" href="#3.-the-deckgl-instance">3. The DeckGL instance</a></h3>
+<p>We create a DeckGL instance targetting the container defined in the layout. During development &amp; preview, this code can run several times, so we take care to clean it up each time the code block runs:</p>
+<div class="observablehq observablehq--block"><!--:66b1d8c3:--></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> deckInstance = <span class="hljs-keyword">new</span> <span class="hljs-title class_">DeckGL</span>({
+  container,
+  initialViewState,
+  getTooltip,
+  effects,
+  <span class="hljs-attr">controller</span>: <span class="hljs-literal">true</span>
+});
+
+<span class="hljs-comment">// clean up if this code re-runs</span>
+invalidation.<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> {
+  deckInstance.<span class="hljs-title function_">finalize</span>();
+  container.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">""</span>;
+});
+</code></pre>
+<p><code>initialViewState</code> describes the initial position of the camera:</p>
+<div class="observablehq observablehq--block"><!--:be874bfd:--></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> initialViewState = {
+  <span class="hljs-attr">longitude</span>: -<span class="hljs-number">2</span>,
+  <span class="hljs-attr">latitude</span>: <span class="hljs-number">53.5</span>,
+  <span class="hljs-attr">zoom</span>: <span class="hljs-number">5.7</span>,
+  <span class="hljs-attr">minZoom</span>: <span class="hljs-number">5</span>,
+  <span class="hljs-attr">maxZoom</span>: <span class="hljs-number">15</span>,
+  <span class="hljs-attr">pitch</span>: <span class="hljs-number">40.5</span>,
+  <span class="hljs-attr">bearing</span>: -<span class="hljs-number">5</span>
+};
+</code></pre>
+<p><code>getTooltip</code> generates the contents displayed when you mouse over a hexagon:</p>
+<div class="observablehq observablehq--block"><!--:30c81b4b:--></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getTooltip</span>(<span class="hljs-params">{object}</span>) {
+  <span class="hljs-keyword">if</span> (!object) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+  <span class="hljs-keyword">const</span> [lng, lat] = object.<span class="hljs-property">position</span>;
+  <span class="hljs-keyword">const</span> count = object.<span class="hljs-property">points</span>.<span class="hljs-property">length</span>;
+  <span class="hljs-keyword">return</span> <span class="hljs-string">`latitude: <span class="hljs-subst">${lat.toFixed(<span class="hljs-number">2</span>)}</span>
+    longitude: <span class="hljs-subst">${lng.toFixed(<span class="hljs-number">2</span>)}</span>
+    <span class="hljs-subst">${count}</span> collisions`</span>;
+}
+</code></pre>
+<p><code>effects</code> defines the lighting:</p>
+<div class="observablehq observablehq--block"><!--:397ecdfa:--></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> effects = [
+  <span class="hljs-keyword">new</span> <span class="hljs-title class_">LightingEffect</span>({
+    <span class="hljs-attr">ambientLight</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">AmbientLight</span>({<span class="hljs-attr">color</span>: [<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>], <span class="hljs-attr">intensity</span>: <span class="hljs-number">1.0</span>}),
+    <span class="hljs-attr">pointLight</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">PointLight</span>({<span class="hljs-attr">color</span>: [<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>], <span class="hljs-attr">intensity</span>: <span class="hljs-number">0.8</span>, <span class="hljs-attr">position</span>: [-<span class="hljs-number">0.144528</span>, <span class="hljs-number">49.739968</span>, <span class="hljs-number">80000</span>]}),
+    <span class="hljs-attr">pointLight2</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">PointLight</span>({<span class="hljs-attr">color</span>: [<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>], <span class="hljs-attr">intensity</span>: <span class="hljs-number">0.8</span>, <span class="hljs-attr">position</span>: [-<span class="hljs-number">3.807751</span>, <span class="hljs-number">54.104682</span>, <span class="hljs-number">8000</span>]})
+  })
+];
+</code></pre>
+<h3 id="4.-the-props" tabindex="-1"><a class="observablehq-header-anchor" href="#4.-the-props">4. The props</a></h3>
+<p>Since some parameters are interactive, we use the <code>setProps</code> method to update the layers when their value changes:</p>
+<div class="observablehq observablehq--block"><!--:b1187fba:--></div>
+<pre data-language="js"><code class="language-js">deckInstance.<span class="hljs-title function_">setProps</span>({
+  <span class="hljs-attr">layers</span>: [
+    <span class="hljs-keyword">new</span> <span class="hljs-title class_">GeoJsonLayer</span>({
+      <span class="hljs-attr">id</span>: <span class="hljs-string">"base-map"</span>,
+      <span class="hljs-attr">data</span>: countries,
+      <span class="hljs-attr">lineWidthMinPixels</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">getLineColor</span>: [<span class="hljs-number">60</span>, <span class="hljs-number">60</span>, <span class="hljs-number">60</span>],
+      <span class="hljs-attr">getFillColor</span>: [<span class="hljs-number">9</span>, <span class="hljs-number">16</span>, <span class="hljs-number">29</span>]
+    }),
+    <span class="hljs-keyword">new</span> <span class="hljs-title class_">HexagonLayer</span>({
+      <span class="hljs-attr">id</span>: <span class="hljs-string">"heatmap"</span>,
+      data,
+      coverage,
+      radius,
+      upperPercentile,
+      colorRange,
+      <span class="hljs-attr">elevationScale</span>: <span class="hljs-number">50</span>,
+      <span class="hljs-attr">elevationRange</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">5000</span> * t],
+      <span class="hljs-attr">extruded</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">getPosition</span>: <span class="hljs-function">(<span class="hljs-params">d</span>) =&gt;</span> d,
+      <span class="hljs-attr">pickable</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">material</span>: {
+        <span class="hljs-attr">ambient</span>: <span class="hljs-number">0.64</span>,
+        <span class="hljs-attr">diffuse</span>: <span class="hljs-number">0.6</span>,
+        <span class="hljs-attr">shininess</span>: <span class="hljs-number">32</span>,
+        <span class="hljs-attr">specularColor</span>: [<span class="hljs-number">51</span>, <span class="hljs-number">51</span>, <span class="hljs-number">51</span>]
+      }
+    })
+  ]
+});
+</code></pre>
+<p>Lastly, the <code>t</code> variable controls the height of the extruded hexagons with a <a href="../javascript/generators">generator</a> (that can be reset with a button input):</p>
+<div class="observablehq observablehq--block"><!--:48a1c3df:--></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> t = (<span class="hljs-keyword">function</span>* () {
+  <span class="hljs-keyword">const</span> duration = <span class="hljs-number">1000</span>;
+  <span class="hljs-keyword">const</span> start = performance.<span class="hljs-title function_">now</span>();
+  <span class="hljs-keyword">const</span> end = start + duration;
+  <span class="hljs-keyword">let</span> now;
+  <span class="hljs-keyword">while</span> ((now = performance.<span class="hljs-title function_">now</span>()) &lt; end) <span class="hljs-keyword">yield</span> d3.<span class="hljs-title function_">easeCubicInOut</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(<span class="hljs-number">0</span>, (now - start) / duration));
+  <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span>;
+})();
+</code></pre>
+</main>
+<footer id="observablehq-footer">
+<div>© 2024 Observable, Inc.</div>
+</footer>
+</div>

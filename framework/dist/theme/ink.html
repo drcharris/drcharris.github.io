@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Theme: ink | Observable Framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="../_observablehq/theme-ink.css">
+<link rel="preload" as="style" href="../_observablehq/stdlib/inputs.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="../_observablehq/theme-ink.css">
+<link rel="stylesheet" type="text/css" href="../_observablehq/stdlib/inputs.css">
+<link rel="modulepreload" href="../_observablehq/client.js">
+<link rel="modulepreload" href="../_observablehq/runtime.js">
+<link rel="modulepreload" href="../_observablehq/stdlib.js">
+<link rel="modulepreload" href="../_observablehq/stdlib/inputs.js">
+<link rel="modulepreload" href="../_npm/@observablehq/plot@0.6.15/_esm.js">
+<link rel="modulepreload" href="../_npm/htl@0.3.1/_esm.js">
+<link rel="modulepreload" href="../_npm/isoformat@0.2.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3@7.9.0/_esm.js">
+<link rel="modulepreload" href="../_npm/interval-tree-1d@1.0.4/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-array@3.2.4/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-axis@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-brush@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-chord@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-color@3.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-contour@4.0.2/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-delaunay@6.0.4/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-dispatch@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-drag@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-dsv@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-ease@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-fetch@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-force@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-format@3.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-geo@3.1.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-hierarchy@3.1.2/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-interpolate@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-path@3.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-polygon@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-quadtree@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-random@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-scale@4.0.2/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-scale-chromatic@3.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-selection@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-shape@3.2.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-time@3.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-time-format@4.1.0/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-timer@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-transition@3.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/d3-zoom@3.0.0/_esm.js">
+<link rel="modulepreload" href="../_npm/binary-search-bounds@2.0.5/_esm.js">
+<link rel="modulepreload" href="../_npm/internmap@2.0.3/_esm.js">
+<link rel="modulepreload" href="../_npm/delaunator@5.0.1/_esm.js">
+<link rel="modulepreload" href="../_npm/robust-predicates@3.0.2/_esm.js">
+<script type="module">
+
+import {define} from "../_observablehq/client.js";
+
+define({id: "24e239e8", inputs: ["industries"], outputs: ["subset","industriesSubset","barData"], body: (industries) => {
+const subset = new Set(["Transportation and Utilities", "Mining and Extraction", "Finance", "Agriculture", "Information"]);
+const industriesSubset = industries.filter(d => subset.has(d.industry));
+const barData = [
+  {Category: "Alpha", Value: 9.8},
+  {Category: "Beta", Value: 7.8},
+  {Category: "Gamma", Value: 6.3},
+  {Category: "Delta", Value: 5},
+  {Category: "Epsilon", Value: 4},
+  {Category: "Zeta", Value: 3.2},
+];
+return {subset,industriesSubset,barData};
+}});
+
+define({id: "9cb8b38a", mode: "inline", inputs: ["resize","Plot","industries","industry","display"], body: async (resize,Plot,industries,industry,display) => {
+display(await(
+    resize((width) => Plot.plot({
+      title: "Construction unemployment reaches record high",
+      subtitle: "And it’s not just seasonal variation",
+      y: {grid: true, transform: (d) => d * 1000},
+      color: {range: ["var(--theme-foreground-fainter)", "var(--theme-foreground-focus)"]},
+      height: 320,
+      width,
+      marks: [
+        Plot.ruleY([0]),
+        Plot.axisY({label: "Unemployed (millions)", tickFormat: (d) => (d / 1e6).toFixed(1)}),
+        Plot.lineY(industries, {x: "date", y: "unemployed", z: "industry", stroke: "var(--theme-foreground-fainter)", strokeWidth: 1}),
+        Plot.lineY(industries, {x: "date", y: "unemployed", filter: (d) => d.industry === industry, stroke: "var(--theme-foreground-focus)", tip: true})
+      ]
+    }))
+  
+))
+}});
+
+define({id: "7ad90c3f", mode: "inline", inputs: ["resize","Plot","alphabet","display"], body: async (resize,Plot,alphabet,display) => {
+display(await(
+    resize((width) => Plot.plot({
+      title: "Vowels are some of the most frequent letters in English",
+      x: {grid: true, percent: true},
+      marginTop: 0,
+      color: {domain: "AEIOUY", unknown: "var(--theme-foreground-fainter)", legend: true},
+      height: 300,
+      width,
+      marks: [
+        Plot.rectX(alphabet, {x: "frequency", y: "letter", fill: (d) => /[aeiouy]/i.test(d.letter) ? d.letter : "other", sort: {y: "-x"}, tip: {format: {x: true, y: true}}}),
+        Plot.ruleX([0])
+      ]
+    }))
+  
+))
+}});
+
+define({id: "b206150d", inputs: ["view","Inputs","industries"], outputs: ["industry"], body: (view,Inputs,industries) => {
+const industry = view(Inputs.select(industries.map((d) => d.industry), {unique: true, sort: true, label: "Industry", value: "Construction"}));
+return {industry};
+}});
+
+define({id: "7e0a226a", inputs: ["Inputs","penguins","display"], body: async (Inputs,penguins,display) => {
+display(await(
+Inputs.table(penguins)
+))
+}});
+
+</script>
+<div id="observablehq-center">
+<main id="observablehq-main" class="observablehq">
+<div class="observablehq observablehq--block"><!--:24e239e8:--></div>
+<h1 id="theme%3A-ink" tabindex="-1"><a class="observablehq-header-anchor" href="#theme%3A-ink">Theme: ink</a></h1>
+<h2 id="a-preview-of-the-ink-theme" tabindex="-1"><a class="observablehq-header-anchor" href="#a-preview-of-the-ink-theme">A preview of the <code>ink</code> <a href="../themes">theme</a></a></h2>
+<div class="grid grid-cols-2">
+  <div class="card"><observablehq-loading></observablehq-loading><!--:9cb8b38a:--></div>
+  <div class="card"><observablehq-loading></observablehq-loading><!--:7ad90c3f:--></div>
+</div>
+<div class="observablehq observablehq--block"><!--:b206150d:--></div>
+<p>Call me Ishmael. Some years ago — never mind how long precisely — having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:7e0a226a:--></div>
+<p>Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people’s hats off — then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. With a philosophical flourish Cato throws himself upon his sword; I quietly take to the ship.</p>
+<p>There is nothing surprising in this. If they but knew it, almost all men in their degree, some time or other, cherish very nearly the same feelings towards the ocean with me.</p>
+</main>
+<footer id="observablehq-footer">
+<div>© 2024 Observable, Inc.</div>
+</footer>
+</div>

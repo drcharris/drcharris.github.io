@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Search input | Observable Framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="../_import/style.94d47c6c.css">
+<link rel="preload" as="style" href="../_observablehq/stdlib/inputs.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="../_import/style.94d47c6c.css">
+<link rel="stylesheet" type="text/css" href="../_observablehq/stdlib/inputs.css">
+<link rel="modulepreload" href="../_observablehq/client.js">
+<link rel="modulepreload" href="../_observablehq/runtime.js">
+<link rel="modulepreload" href="../_observablehq/stdlib.js">
+<link rel="modulepreload" href="../_observablehq/stdlib/inputs.js">
+<link rel="modulepreload" href="../_npm/htl@0.3.1/_esm.js">
+<link rel="modulepreload" href="../_npm/isoformat@0.2.1/_esm.js">
+<link rel="apple-touch-icon" href="../_file/observable.1af93621.png">
+<link rel="icon" type="image/png" href="../_file/observable.1af93621.png" sizes="32x32">
+<script type="module">/Win/.test(navigator.platform) || Array.from(document.querySelectorAll(".win"), (e) => e.remove())</script>
+<script type="module">
+
+import {define} from "../_observablehq/client.js";
+
+define({id: "e06d6df5", inputs: ["Inputs","penguins","view"], outputs: ["searchInput","search"], body: (Inputs,penguins,view) => {
+const searchInput = Inputs.search(penguins, {placeholder: "Search penguins…"});
+const search = view(searchInput);
+return {searchInput,search};
+}});
+
+define({id: "f1f3528b", inputs: ["search","display"], body: async (search,display) => {
+display(await(
+search
+))
+}});
+
+define({id: "9bced2cb", inputs: ["Inputs","search","display"], body: async (Inputs,search,display) => {
+display(await(
+Inputs.table(search)
+))
+}});
+
+define({id: "cd40a214", inputs: ["searchInput","Event"], body: (searchInput,Event) => {
+for (const abbr of document.querySelectorAll("abbr")) {
+  abbr.title = `Search for “${abbr.textContent}”`;
+  abbr.style.cursor = "default";
+  abbr.onclick = () => {
+    const input = searchInput.querySelector("input");
+    input.value = abbr.textContent;
+    input.dispatchEvent(new Event("input", {bubbles: true}));
+  };
+}
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="../">Observable Framework</a></li>
+  </ol>
+  <div id="observablehq-search"><input type="search" placeholder="Search"></div>
+  <div id="observablehq-search-results"></div>
+  <script>{const o=document.querySelector("#observablehq-search");o.setAttribute("data-shortcut",`${/Mac|iPhone/.test(navigator.platform)?"\u2318":"Alt-"}K`);const t=o.querySelector("input"),r=()=>import("../_observablehq/search.js");t.addEventListener("focus",r,{once:!0}),t.addEventListener("keydown",r,{once:!0});const c=document.querySelector("#observablehq-sidebar-toggle");addEventListener("keydown",e=>{(e.code==="KeyK"&&e.metaKey&&!e.altKey&&!e.ctrlKey||e.key==="/"&&!e.metaKey&&!e.altKey&&!e.ctrlKey&&e.target===document.body)&&(c.checked?t.focus():(c.click(),t.focus(),c.click()),t.select(),e.preventDefault())});}</script>
+  <ol>
+    <li class="observablehq-link"><a href="../what-is-framework">What is Framework?</a></li>
+    <li class="observablehq-link"><a href="../getting-started">Getting started</a></li>
+    <li class="observablehq-link"><a href="../project-structure">Project structure</a></li>
+    <li class="observablehq-link"><a href="../markdown">Markdown</a></li>
+    <li class="observablehq-link"><a href="../javascript">JavaScript</a></li>
+    <li class="observablehq-link"><a href="../reactivity">Reactivity</a></li>
+    <li class="observablehq-link"><a href="../jsx">JSX</a></li>
+    <li class="observablehq-link"><a href="../imports">Imports</a></li>
+    <li class="observablehq-link"><a href="../loaders">Data loaders</a></li>
+    <li class="observablehq-link"><a href="../files">Files</a></li>
+    <li class="observablehq-link"><a href="../sql">SQL</a></li>
+    <li class="observablehq-link"><a href="../themes">Themes</a></li>
+    <li class="observablehq-link"><a href="../config">Configuration</a></li>
+    <li class="observablehq-link"><a href="../deploying">Deploying</a></li>
+    <li class="observablehq-link"><a href="https://github.com/observablehq/framework/tree/main/examples" target="_blank"><span>Examples</span></a></li>
+  </ol>
+  <details open class="observablehq-section-active">
+    <summary>Inputs</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./button">Button</a></li>
+    <li class="observablehq-link"><a href="./checkbox">Checkbox</a></li>
+    <li class="observablehq-link"><a href="./color">Color</a></li>
+    <li class="observablehq-link"><a href="./date">Date</a></li>
+    <li class="observablehq-link"><a href="./file">File</a></li>
+    <li class="observablehq-link"><a href="./form">Form</a></li>
+    <li class="observablehq-link"><a href="./radio">Radio</a></li>
+    <li class="observablehq-link"><a href="./range">Range</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./search">Search</a></li>
+    <li class="observablehq-link"><a href="./select">Select</a></li>
+    <li class="observablehq-link"><a href="./table">Table</a></li>
+    <li class="observablehq-link"><a href="./text">Text</a></li>
+    <li class="observablehq-link"><a href="./textarea">Textarea</a></li>
+    <li class="observablehq-link"><a href="./toggle">Toggle</a></li>
+    </ol>
+  </details>
+  <details>
+    <summary>Libraries</summary>
+    <ol>
+    <li class="observablehq-link"><a href="../lib/arrow">Apache Arrow</a></li>
+    <li class="observablehq-link"><a href="../lib/arquero">Arquero</a></li>
+    <li class="observablehq-link"><a href="../lib/csv">CSV</a></li>
+    <li class="observablehq-link"><a href="../lib/d3">D3</a></li>
+    <li class="observablehq-link"><a href="../lib/deckgl">Deck.gl</a></li>
+    <li class="observablehq-link"><a href="../lib/dot">DOT (Graphviz)</a></li>
+    <li class="observablehq-link"><a href="../lib/duckdb">DuckDB</a></li>
+    <li class="observablehq-link"><a href="../lib/htl">Hypertext Literal</a></li>
+    <li class="observablehq-link"><a href="../lib/leaflet">Leaflet</a></li>
+    <li class="observablehq-link"><a href="../lib/lodash">Lodash</a></li>
+    <li class="observablehq-link"><a href="../lib/mapbox-gl">Mapbox GL JS</a></li>
+    <li class="observablehq-link"><a href="../lib/mermaid">Mermaid</a></li>
+    <li class="observablehq-link"><a href="../lib/xlsx">Microsoft Excel (XLSX)</a></li>
+    <li class="observablehq-link"><a href="../lib/mosaic">Mosaic vgplot</a></li>
+    <li class="observablehq-link"><a href="../lib/generators">Observable Generators</a></li>
+    <li class="observablehq-link"><a href="../lib/inputs">Observable Inputs</a></li>
+    <li class="observablehq-link"><a href="../lib/plot">Observable Plot</a></li>
+    <li class="observablehq-link"><a href="../lib/shapefile">Shapefile</a></li>
+    <li class="observablehq-link"><a href="../lib/sqlite">SQLite</a></li>
+    <li class="observablehq-link"><a href="../lib/tex">TeX</a></li>
+    <li class="observablehq-link"><a href="../lib/topojson">TopoJSON</a></li>
+    <li class="observablehq-link"><a href="../lib/vega-lite">Vega-Lite</a></li>
+    <li class="observablehq-link"><a href="../lib/zip">ZIP</a></li>
+    </ol>
+  </details>
+  <ol>
+    <li class="observablehq-link"><a href="../contributing">Contributing</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#options">Options</a></li>
+</ol>
+</nav>
+</aside>
+<div id="observablehq-center">
+<header id="observablehq-header">
+<div style="display: flex; align-items: center; gap: 0.5rem; height: 2.2rem; margin: -1.5rem -2rem 2rem -2rem; padding: 0.5rem 2rem; border-bottom: solid 1px var(--theme-foreground-faintest); font: 500 16px var(--sans-serif);">
+  <a href="https://observablehq.com/" target="_self" rel="" style="display: flex; align-items: center;">
+    <svg width="22" height="22" viewBox="0 0 21.92930030822754 22.68549919128418" fill="currentColor">
+      <path d="M10.9646 18.9046C9.95224 18.9046 9.07507 18.6853 8.33313 18.2467C7.59386 17.8098 7.0028 17.1909 6.62722 16.4604C6.22789 15.7003 5.93558 14.8965 5.75735 14.0684C5.56825 13.1704 5.47613 12.2574 5.48232 11.3427C5.48232 10.6185 5.52984 9.92616 5.62578 9.26408C5.7208 8.60284 5.89715 7.93067 6.15391 7.24843C6.41066 6.56618 6.74143 5.97468 7.14438 5.47308C7.56389 4.9592 8.1063 4.54092 8.72969 4.25059C9.38391 3.93719 10.1277 3.78091 10.9646 3.78091C11.977 3.78091 12.8542 4.00021 13.5962 4.43879C14.3354 4.87564 14.9265 5.49454 15.3021 6.22506C15.6986 6.97704 15.9883 7.7744 16.1719 8.61712C16.3547 9.459 16.447 10.3681 16.447 11.3427C16.447 12.067 16.3995 12.7593 16.3035 13.4214C16.2013 14.1088 16.0206 14.7844 15.7644 15.437C15.4994 16.1193 15.1705 16.7108 14.7739 17.2124C14.3774 17.714 13.8529 18.1215 13.1996 18.4349C12.5463 18.7483 11.8016 18.9046 10.9646 18.9046ZM12.8999 13.3447C13.4242 12.8211 13.7159 12.0966 13.7058 11.3427C13.7058 10.5639 13.4436 9.89654 12.92 9.34074C12.3955 8.78495 11.7441 8.50705 10.9646 8.50705C10.1852 8.50705 9.53376 8.78495 9.00928 9.34074C8.49569 9.87018 8.21207 10.5928 8.22348 11.3427C8.22348 12.1216 8.48572 12.7889 9.00928 13.3447C9.53376 13.9005 10.1852 14.1784 10.9646 14.1784C11.7441 14.1784 12.3891 13.9005 12.8999 13.3447ZM10.9646 22.6855C17.0199 22.6855 21.9293 17.6068 21.9293 11.3427C21.9293 5.07871 17.0199 0 10.9646 0C4.90942 0 0 5.07871 0 11.3427C0 17.6068 4.90942 22.6855 10.9646 22.6855Z"></path>
+    </svg>
+  </a>
+  <div style="display: flex; flex-grow: 1; justify-content: space-between; align-items: baseline;">
+    <a href="../">
+      <span class="hide-if-small">Observable</span> Framework
+    </a>
+    <span style="display: flex; align-items: baseline; gap: 1rem; font-size: 14px;">
+      <a target="_blank" title="1.9.0 release notes" href="https://github.com/observablehq/framework/releases" rel="noopener noreferrer"><span>1.9.0</span></a>
+      <a target="_blank" data-decoration="★" title="2,121 GitHub stars" href="https://github.com/observablehq/framework" rel="noopener noreferrer"><span>GitHub️ 2.1k</span></a>
+    </span>
+  </div>
+</div>
+</header>
+<main id="observablehq-main" class="observablehq">
+<h1 id="search-input" tabindex="-1"><a class="observablehq-header-anchor" href="#search-input">Search input</a></h1>
+<p><a href="https://github.com/observablehq/inputs/blob/main/README.md#search" target="_blank" rel="noopener noreferrer">API</a> · <a href="https://github.com/observablehq/inputs/blob/main/src/search.js" target="_blank" rel="noopener noreferrer">Source</a> · The search input allows freeform, full-text search of a tabular dataset (or a single column of values) using a simple query parser. It is often paired with a <a href="./table">table input</a>.</p>
+<p>By default, the query is split into terms separated by spaces; each term is then prefix-matched against the property values (the fields) of each row in the data. Try searching for “gen” below to find Gentoo penguins.</p>
+<div class="observablehq observablehq--block"><!--:e06d6df5:--></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> search = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">search</span>(penguins, {<span class="hljs-attr">placeholder</span>: <span class="hljs-string">"Search penguins…"</span>}));
+</code></pre>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:f1f3528b:--></div>
+<pre data-language="js"><code class="language-js">search
+</code></pre>
+<p>Or, as a table:</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:9bced2cb:--></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">table</span>(search)
+</code></pre>
+<div class="observablehq observablehq--block"><!--:cd40a214:--></div>
+<p>If you search for multiple terms, such as “<abbr>gen bis</abbr>” (for Gentoos on the Biscoe Islands) or “<abbr>gen fem</abbr>” (for female Gentoos), every term must match: there’s an implicit logical AND.</p>
+<p>If you’d like different search syntax or behavior, pass the <em>filter</em> option. This function is passed the current search query and returns the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank" rel="noopener noreferrer">filter test function</a> to be applied to the data.</p>
+<h2 id="options" tabindex="-1"><a class="observablehq-header-anchor" href="#options">Options</a></h2>
+<p><strong>Inputs.search(<em>data</em>, <em>options</em>)</strong></p>
+<p>The available search input options are:</p>
+<ul>
+<li><em>label</em> - a label; either a string or an HTML element</li>
+<li><em>query</em> - the initial search terms; defaults to the empty string</li>
+<li><em>placeholder</em> - a placeholder string for when the query is empty</li>
+<li><em>columns</em> - an array of columns to search; defaults to <em>data</em>.columns</li>
+<li><em>locale</em> - the current locale; defaults to English</li>
+<li><em>format</em> - a function to show the number of results</li>
+<li><em>spellcheck</em> - whether to activate the browser’s spell-checker</li>
+<li><em>autocomplete</em> - the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete" target="_blank" rel="noopener noreferrer">autocomplete</a> attribute, as text or boolean</li>
+<li><em>autocapitalize</em> - the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize" target="_blank" rel="noopener noreferrer">autocapitalize</a> attribute, as text or boolean</li>
+<li><em>filter</em> - the filter factory: a function that receives the query and returns a filter</li>
+<li><em>width</em> - the width of the input (not including the label)</li>
+<li><em>datalist</em> - an iterable of suggested values</li>
+<li><em>disabled</em> - whether input is disabled; defaults to false</li>
+<li><em>required</em> - if true, the search’s value is all <em>data</em> if no query; defaults to true</li>
+</ul>
+<p>If a <em>filter</em> function is specified, it is invoked whenever the query changes; the function it returns is then passed each element from <em>data</em>, along with its zero-based index, and should return a truthy value if the given element matches the query. The default filter splits the current query into space-separated tokens and checks that each token matches the beginning of at least one string in the data’s columns, case-insensitive. For example, the query [hello world] will match the string “Worldwide Hello Services” but not “hello”.</p>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./range"><span>Range</span></a><a rel="next" href="./select"><span>Select</span></a></nav>
+<div>© 2024 Observable, Inc.</div>
+</footer>
+</div>
